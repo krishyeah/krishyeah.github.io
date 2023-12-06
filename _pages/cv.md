@@ -11,8 +11,10 @@ redirect_from:
 
 Education
 ======
-* B.S. in Structural Engineer (Aerospace Structures Focus), University of California, San Diego, 2019
-* M.S. in Computer Science, Georgia Institute of Technology, 2023
+* B.S. in Structural Engineering (Aerospace Structures Focus)
+    * University of California, San Diego, 2019
+* M.S. in Computer Science
+    * Georgia Institute of Technology, 2023
 
 Work experience
 ======
