@@ -2,8 +2,8 @@
 title: '1512. Number of Good Pairs'
 number: 1512
 date: 2023-10-03
-collection: leetcode-solutions
-permalink: /leetcode-solutions/1512/
+collection: leetcodesolutions
+permalink: /leetcodesolutions/1512/
 ---
 
 # Intuition
