@@ -1,13 +1,13 @@
 ---
 layout: archive
 title: "Leetcode Solutions"
-permalink: /leetcodessolutions/
+permalink: /leetcodesolutions/
 author_profile: true
 ---
 
 {% include base_path %}
 
 
-{% for post in site.leetcodessolutions %}
+{% for post in site.leetcodesolutions %}
   {% include archive-single.html %}
 {% endfor %}
