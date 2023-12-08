@@ -1,5 +1,5 @@
 ---
-title: "896. Monotonic Array"
+title: "896 Monotonic Array"
 number: 896
 date: 2023-10-09
 collection: leetcodesolutions
