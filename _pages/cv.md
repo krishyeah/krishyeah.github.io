@@ -19,10 +19,8 @@ Education
 Work experience
 ======
 
-* Nov 2021 - Present: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* Nov 2021 - Present: Mechanical Engineer
+  * Lawrence Livermore National Laboratory
 
 * Aug 2019 - Oct 2021: Structural Analysis Engineer
   * Boeing

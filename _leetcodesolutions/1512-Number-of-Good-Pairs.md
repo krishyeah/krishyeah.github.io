@@ -1,5 +1,5 @@
 ---
-title: '1512. Number of Good Pairs'
+title: "1512. Number of Good Pairs"
 number: 1512
 date: 2023-10-03
 collection: leetcodesolutions
