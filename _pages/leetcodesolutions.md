@@ -9,4 +9,4 @@ author_profile: true
 
 {% for post in site.leetcodesolutions %}
   {% include archive-single.html %}
-{% endfor %}s
+{% endfor %}
