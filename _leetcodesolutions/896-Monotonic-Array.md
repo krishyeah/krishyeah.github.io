@@ -4,6 +4,7 @@ number: 896
 date: 2023-10-09
 collection: leetcodesolutions
 permalink: /leetcodesolutions/896/
+excerpt: Solution to [Leetcode 896](https://leetcode.com/problems/monotonic-array/description/)
 ---
 
 # Intuition
