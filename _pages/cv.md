@@ -25,18 +25,17 @@ Work experience
 * Aug 2019 - Oct 2021: Structural Analysis Engineer
   * Boeing
 
-Publications
+Projects
 ======
-  <ul>{% for post in site.publications %}
+  <ul>{% for post in site.project %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
+* Languages
+  * Python, Java, C, C++, SQL, MATLAB
+* Libraries
+  * Apache Derby, scikit-learn, pandas, numpy
+* Technologies
+  * Linux, Git, gRPC, Wireshark, LLVM
