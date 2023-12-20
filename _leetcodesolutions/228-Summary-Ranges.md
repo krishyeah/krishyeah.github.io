@@ -8,7 +8,7 @@ excerpt: Solution to [Leetcode 228](https://leetcode.com/problems/summary-ranges
 ---
 # [Problem](https://leetcode.com/problems/summary-ranges/description/)
 
-# Solution 1
+# Solution
 
 ## Intuition
 <!-- Describe your first thoughts on how to solve this problem. -->
