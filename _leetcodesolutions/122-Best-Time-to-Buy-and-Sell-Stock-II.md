@@ -1,7 +1,7 @@
 ---
 title: "122 Best Time to Buy and Sell Stock II"
 number: 122
-date: 2023-11-07
+date: 2023-11-08
 collection: leetcodesolutions
 permalink: /leetcodesolutions/122/
 excerpt: Solution to [Leetcode 122](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/)
