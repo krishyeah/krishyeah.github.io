@@ -2,7 +2,7 @@
 title: "Rock Paper Scissor Bot"
 excerpt: "Bot that uses AI to try and beat you in Rock Paper Scissor"
 collection: projects
-permalink: projects/rps_bot
+permalink: /projects/rps_bot/
 ---
 
 # Rock Paper Scissors Bot
