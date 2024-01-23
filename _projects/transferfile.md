@@ -5,7 +5,7 @@ collection: projects
 permalink: /projects/transferfile/
 ---
 
-# Operating Systems Project 1 README
+# Transferfile README
 By Krishna Mehta
 
 ## Echo
