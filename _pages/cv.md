@@ -27,8 +27,8 @@ Work experience
 
 Projects
 ======
-  <ul>{% for post in site.project %}
-    {% include archive-single-cv.html %}
+  <ul>{% for post in site.projects %}
+  {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
 Skills
