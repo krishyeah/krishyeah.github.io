@@ -1,10 +1,10 @@
 ---
-title: "80 Remove Duplicates from Sorted Array II"
-number: 80
-date: 2023-11-06
+title: "83 Remove Duplicates from Sorted List"
+number: 83
+date: 2024-05-05
 collection: leetcodesolutions
-permalink: /leetcodesolutions/80/
-excerpt: Solution to [Leetcode 80](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/)
+permalink: /leetcodesolutions/83/
+excerpt: Solution to [Leetcode 83](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/)
 ---
 # [Problem](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/)
 
@@ -12,43 +12,68 @@ excerpt: Solution to [Leetcode 80](https://leetcode.com/problems/remove-duplicat
 
 ## Intuition
 <!-- Describe your first thoughts on how to solve this problem. -->
-This problem requires in-place rewriting of the array with a maximum of 1 duplicates for each element in the original array. Note that the solution expects you to keep a duplicate if duplicates are present. The question writes "at most 1 duplicate"; however, removing all duplicates would not yield the correct answer.
+This problem requires us to take a sorted list and return the list with all of its duplicates removed while keeping the list sorted.
+
+To brute force this solution, we can iterate through the list and store values in a set or array and continue to add new values only. Then after we iterate through the entire list, we can create a new list from the unique values that are still sorted.
+
+We can do better however by working directly on the given list. To remove the duplicate nodes, we simply remove a pointer to that node and this will remove the node from the list. We traverse the list and if we encounter a duplicate node, we continue iterate until e find the next unique node and then point from our current node to the next unique node. We continue this process until we iterate through the list of nodes.
 
 ## Approach
 <!-- Describe your approach to solving the problem. -->
-This problem is solved using a two pointer method as my initial intuition was to remember the position of the last "good" number both for the return and also for knowing where to insert the next number, while having a fast pointer iterate through all numbers in the array.
+1. Check our base case of having an empty list and return the empty list.
+2. Create a pointer to the head node which is our current first node. Create a pointer to the next node which will be the first node we will check against.
+3. While there is a next node to check, if the values of the nodes are different, we iterate both nodes forwards. If the values are the same, we continue iterating the next node unitl we find the next unique node and make the current node point to this next unique node. Then we iterate both nodes forwards. If we go to the end of the list, this means that the current node is the last unique node in the list so we make it point to `NULL` and then return the list.
+4. We return the list after there is no next unique node to find.
 
 ## Complexity
 - Time complexity:
 <!-- Add your time complexity here, e.g. $$O(n)$$ -->
-$O(n)$ as we iterate through all elements once while doing a constant time operation during each iteration.
+$O(n)$. We iterate through each node and perform constant time operations on each node.
 - Space complexity:
 <!-- Add your space complexity here, e.g. $$O(n)$$ -->
-$O(1)$ as we don't introduce any data structures and only store a few variables.
+$O(1)$. We utilize two pointers to nodes which takes constant space.
 
 ## Code
-```python
-class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
-        if len(nums) <= 2:
-            return len(nums)
+```C++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        if (head == NULL) {
+            return head;
+        }
         
-        duplicate = 0
-        slow = fast = 1
+        ListNode* cur_node = head;
+        ListNode* nxt_node = head->next;
 
-        while fast < len(nums):
-            if (nums[fast] == nums[fast - 1] and not duplicate):
-                nums[slow] = nums[fast]
-                slow += 1
-                fast += 1
-                duplicate = 1
-            elif nums[fast] != nums[fast - 1]:
-                nums[slow] = nums[fast]
-                slow += 1
-                fast += 1 
-                duplicate = 0
-            else:
-                fast += 1
-
-        return slow
+        while (nxt_node) {
+            if (nxt_node->val != cur_node->val) {
+                cur_node = nxt_node;
+                nxt_node = nxt_node->next;
+            }
+            else {
+                while (nxt_node && nxt_node->val == cur_node->val) {
+                    nxt_node = nxt_node->next;
+                }
+                if (nxt_node == NULL) {
+                    cur_node->next = NULL;
+                    return head;
+                }
+                cur_node->next = nxt_node;
+                cur_node = nxt_node;
+                nxt_node = nxt_node->next;
+            }
+        }
+        return head;
+    }
+};
 ```
