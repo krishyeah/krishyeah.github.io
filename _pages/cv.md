@@ -22,7 +22,7 @@ Work experience
 * Nov 2021 - Present: Mechanical Engineer
   * Lawrence Livermore National Laboratory
     * Perform data analysis of problem logs to drive multiple design solutions for mitigating failure rates and leading sustainibility efforts.
-    * Led $500k project to reduce failure rate of disposable optic shields estimated to save $200k per year and 500-man hours.
+    * Led \$500k project to reduce failure rate of disposable optic shields estimated to save \$200k per year and 500-man hours.
     * Create requirements, design feasibility studies, perform design reviews, and finalize design requirements.
 
 * Aug 2019 - Oct 2021: Structural Analysis Engineer
