@@ -41,6 +41,6 @@ Skills
 * Languages
   * Python, Java, C, C++, SQL, MATLAB
 * Libraries
-  * Apache Derby, scikit-learn, pandas, numpy
+  * TensorFlow, Scikit-learn, Pandas, NumPy, Apache Derby
 * Technologies
-  * Linux, Git, gRPC, Wireshark, LLVM
+  * Docker, Git, Linux, RPC, Wireshark, LLVM
