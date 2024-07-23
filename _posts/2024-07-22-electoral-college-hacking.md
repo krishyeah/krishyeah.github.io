@@ -2,6 +2,7 @@
 title: 'Hacking the Electoral College'
 date: 2024-07-22
 permalink: /posts/2024/07/electoral-college-hacking/
+excerpt: A look into the electoral college system in the United States and modeling some interesting scenarios.
 tags:
   - politics
 ---
