@@ -39,8 +39,8 @@ Projects
 Skills
 ======
 * Languages
-  * Python, Java, C, C++, SQL, MATLAB
+  * Python, Java, C, C++, SQL, MATLAB, protocol buffers
 * Libraries
   * TensorFlow, Scikit-learn, Pandas, NumPy, Apache Derby
 * Technologies
-  * Docker, Git, Linux, RPC, Wireshark, LLVM
+  * Docker, Git, Docker, Linux, RPC, Wireshark, SQL, LLVM

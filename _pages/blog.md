@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-This is still a work in progress. I haven't written any blogs yet, but my thoughts are to write about sports, science, math, and the intersection of the three as I have the time and inspiration to do so.
+This is still a work in progress. I haven't written many blogs yet, but my thoughts are to write about sports, science, math, and the intersection of the three as I have the time and inspiration to do so.
 
 {% capture written_year %}'None'{% endcapture %}
 {% for post in site.posts %}
