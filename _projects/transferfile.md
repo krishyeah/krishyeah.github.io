@@ -15,7 +15,7 @@ The echo portion of the project introduces the concept of socket creation and se
 ### Project Design and Flow Control
 The project design is quite simple. The following image illustrates the flow control for creation of a client and server and sending of messages between the client and server.
 
-![echo](https://github.gatech.edu/storage/user/51215/files/7489e394-27da-4884-aa45-e3c985e381d0)
+![echo](_projects/handle-with-curl-images/echo.png)
 
 ### Implementation and trade offs
 There were no trade offs that were necessary due to the simplicity of the programs. A possible consideration was creating handling to specifically address each of IPv4 and IPv6; however, this was not necessary as the approach taken was able to cover both of these. The implementation used follows the guide that Beej lays out in Beej's Guide to Network Programming included in the References section. The only point to note is as it is not certain if the server will be sending back a null terminated character array, the client appends a null terminator to the message sent back by the server.  
@@ -31,7 +31,7 @@ The transferfile portion of the project builds upon the first section and when a
 ### Project Design and Flow Control
 The project design follows that of the previous section; however, there are a few key differences due to the nature of sending a file of undetermined length as opposed to the fixed length messages sent in the previous section.
 
-![transferclient](https://github.gatech.edu/storage/user/51215/files/fae2a1b0-345e-48bd-95ef-d3c34fdf8e9b)
+![transferclient](_projects/handle-with-curl-images/transferclient.png)
 
 The flow control shows the similarities in socket creation and usage. Some of the code for this section was used from the previous section. There are three main loops of importance in this section. The loop in client ensures that the client will continue to `recv()` and `fwrite()` while the server is still sending data. The server will initiate closing the socket which will let the client know when there is no more data to be received. The server has two loops. The first loop is to ensure the server will stay open and handle proper `close()` and `flcose()` to clean up a client's socket file descriptor and close the file to send respectively. The server should be able to handle multiple requests so the server stays open while closing the connection with the client. The second loop makes the server continue to `fread()` and `send()` the data read from the file until the end of file. As the server is sending the file, only the server knows when the file is being sent and will have to ensure it closes the socket to signal to the client the data transfer is over.
 
@@ -53,11 +53,11 @@ The client runs on a driver program in `gfclient_download.c`. The driver functio
 
 The diagram below shows the interactions between the driver, library, and call back function.
 
-![gfclient_high](https://github.gatech.edu/storage/user/51215/files/353ba1f9-d4c0-4a7a-b910-2f555b6c0adb)
+![gfclient_high](_projects/handle-with-curl-images/gfclient_high.png)
 
 The diagram below shows the design and flow control of the library's main function `gfc_perform()` which is responsible for creating a request from the path given by the driver function, parsing the response from the server, and utilizing the call back in order to write the file if needed.
 
-![gfc_perform](https://github.gatech.edu/storage/user/51215/files/907b2088-d29f-4d17-8768-404253809e43)
+![gfc_perform](_projects/handle-with-curl-images/gfc_perform.png)
 
 The perform function is responsible for a majority of the library operations. The other library functions include creating a struct to encaspulate the data needed for the client to perform and setting values in the struct so arguments sent by the Driver are used. The design is very linear as `gfc_perform()` goes through its steps in order with not many loops or extra functions necessary.
 
@@ -74,17 +74,17 @@ The single threaded get file server forms the complement to the single threaded 
 ### Project Design and Flow Control
 The high level design of this section is similar to the previous section. The driver function (`gfserver_main.c`) calls methods from the library (`gfserver.c`) which then makes use of a call back to the handler (`handler.o`). The handler calls send methods which are located in the library to complete the sending of the header response and file if necessary.
 
-![gfserver_high](https://github.gatech.edu/storage/user/51215/files/1d793334-1b95-473d-bbf4-d6a516d23983)
+![gfserver_high](_projects/handle-with-curl-images/gfserver_high.png)
 
 The diagram below shows the flow control for `gfserver_serve()` which is the main function in the library. This function handles parsing the request by the client, validating the request, and registering a call back to send the header and file.
 
-![gfserver_serve](https://github.gatech.edu/storage/user/51215/files/00c290b2-8477-49c2-a6ab-c6a9bfab3a59)
+![gfserver_serve](_projects/handle-with-curl-images/gfserver_serve.png)
 
 The handler call back registered by `gfserver_serve()` is responsible for sending the header response, fiding and opening the file, as well as sending the file contents to the client. The handler capability is handled in a provided binary, `handler.o`, but `gfs_sendheader()` and `gfs_send()` are methods called by the handler which are in the `gfserver.c` library. The flow control for each of these functions is shown in the diagram below.
 
-![gfserver_sendheader](https://github.gatech.edu/storage/user/51215/files/339356cd-d064-4593-91cd-629d9234c9d0)
+![gfserver_sendheader](_projects/handle-with-curl-images/gfserver_sendheader.png)
 
-![gfserver_send](https://github.gatech.edu/storage/user/51215/files/1eaa5bd9-bdb2-4704-b986-9a6a674b2b3c)
+![gfserver_send](_projects/handle-with-curl-images/gfserver_send.png)
 
 ### Implementation and trade offs
 The implementation of the server was simpler than the previous section of the client due to the simplicity in request parsing. The server only needs to parse the request from the client and send data read from file; however, the bulk of opening a file and reading is taken care of by `handler.o` leaving only implementing the send functions. The first major implementation is the request parsing carried out by `gfserver_serve()`. The method continues to receive bytes from the client until the tail is found or the client closes the connection early. Once the tail is found, the request is parsed to ensure proper formatting. The data passed in is converted to a string for this comparison; however, this is a trade-off that can be chosen to be avoided as C strings are harder to work with, and the data can be compared as bytes without string conversion. The path is then sent to the handler which calls `gfs_sendheader()` to send the header to the client. A switch is used for building the header using the status passed by the handler. The `send()` method is in a loop similar to what has been seen in previous sections where it is continuously sent until the full message has been sent. The `gfs_send()` method is called by the handler in the same loop to send the data content to the client. 
@@ -99,7 +99,7 @@ The multithreaded get file client builds upon the single threaded get file clien
 ### Project Design and Flow Control
 The project design for the multithreaded client follows the high level design of the single threaaded client. The differences come in how the Driver function, `gfclient_download.c`, creates multiple threads to handle requesting and downloading multiple files at the same time. The following diagram shows how the Driver function creates threads as well as the usage of threads to request and download files.
 
-![mtgf_driver](https://github.gatech.edu/storage/user/51215/files/4b2908e4-3301-426b-bdfc-45ba5b7b9999)
+![mtgf_driver](_projects/handle-with-curl-images/mtgf_driver.png)
 
 The flow of the threads is based on the number of requests to be served. Threads will repeat dequeueing from the steque the Driver has set up, until all requests have been served. Threads exit when they see no more requests to be served.
 
@@ -115,13 +115,13 @@ The multithreaded get file server is the complement to the previous section's cl
 ### Project Design and Flow Control
 The project design for the multithreaded server follows the high level design of the single threaded server with the difference being that the handler adds to a steque which is accessed by the threads in the Driver function for performing the reading and sending of headers and files. The diagram below shows the design and flow control of `gfserver_main.c` which is the Driver function that preforms thread creation.
 
-![gfserver_main](https://github.gatech.edu/storage/user/51215/files/50a1af99-d72b-47e2-8f9d-e8034c3a231a)
+![gfserver_main](_projects/handle-with-curl-images/gfserver_main.png)
 
 The threads always stay alive as the server will continue to run and be ready to handle new client requests as they come in.
 
 The handler design and flow control is shown below to illustrate how the handler fits into the overall design relative to the Driver and Library.
 
-![handler](https://github.gatech.edu/storage/user/51215/files/ea671dfe-7866-40b1-b7cb-6237832a7b56)
+![handler](_projects/handle-with-curl-images/handler.png)
 
 The handler operates when called and only performs the function of putting a struct in to the steque which the workers will operate on in order to process the request.
 
@@ -131,9 +131,9 @@ One of the lessons learnt from the multithreaded client were implemented in this
 ## References
 The references listed were used for the source code in implementation of each of the previous sections.
 
-Beej's Guide to Network Programming: https://beej.us/guide/bgnet/html/
+[Beej's Guide to Network Programming](https://beej.us/guide/bgnet/html/)
 
-Tutorial's Point: https://www.tutorialspoint.com/c_standard_library/index.htm
+[Tutorial's Point](https://www.tutorialspoint.com/c_standard_library/index.htm)
 - This resource was used for multiple functions including:
   - strstr()
   - read()
@@ -153,7 +153,7 @@ The TA's were utilized for help implementing many ideas such as:
 - Header parsing for tail end
 - Thread pool creation
 - Global variable utilization
-- Memory ownership and pointers: https://piazza.com/class/ky4oj8pjzic6wh?cid=73
+- Memory ownership and pointers
 
 My own source code was copied between sections as the later sections built upon lessons learnt from the previous section and socket creation and thread pool creation became boiler plate code to use.
 
