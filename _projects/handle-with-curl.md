@@ -16,13 +16,13 @@ The handle with curl server portion of the project creates a multi-threaded serv
 
 The project design is shown in the diagram below. The client makes a request to the proxy server. The proxy server implements threads to serve requests from clients. The threads will serve requests using a handler. The handler uses libcurl to request the file from the server. Libcurl allows the handler to create write callbacks for writing the data read from the server into memory. After the file is written to local memory, the handler will send the file back to the client and exit.
 
-![curldesign](https://github.gatech.edu/storage/user/51215/files/0e1cdf88-8fde-4618-a967-595eb121c6b5)
+![curldesign](/images/handle-with-curl-images/curldesign.png)
 
 The callback function writing into a local data structure containing the data and size of file is created by [hackthissite.org](https://www.hackthissite.org/articles/read/1078).
 
 The handler contains a majority of the logic necessary for file transer so the flow control is shown below.
 
-![curlflow](https://github.gatech.edu/storage/user/51215/files/05dc332c-e5d3-43bc-8698-2ece70290631)
+![curlflow](/images/handle-with-curl-images/curlflow.png)
 
 ### Implementation and Trade Offs
 
@@ -42,11 +42,11 @@ The handle with cache portion of the project creates a multi-threaded proxy whic
 
 The design of the project was complicated due to the nature of setting up IPC mechanisms including a message queue and shared memory segments. The diagram below showcases the relationships between the Proxy, Handler, and Cache.
 
-![cachedesign](https://github.gatech.edu/storage/user/51215/files/5a52c4a9-edf1-498b-97c3-ca371e9c8965)
+![cachedesign](/images/handle-with-curl-images/cachedesign.png)
 
 The proxy creates shared segments of memory and creates threads which are invoked when the client sends a request. The proxy opens a POSIX message queue which is created by the cache. The proxy also creates shared memory segments with the POSIX API. The proxy will then map a data structure to the shared segment which contains metadata used by the handler and cache to perform synchronous data writing. The proxy achieves the synchronization for data writing to shared memory via POSIX semaphores. The proxy pushes the data structure onto a steque for use by handler threads.
 
-![handlercachesync](https://github.gatech.edu/storage/user/51215/files/e1c846b7-195a-4803-95ae-94c25b5abc6d)
+![handlercachesync](/images/handle-with-curl-images/handlercachesync.png)
 
 The handler threads which are created by the proxy put a request together using the file requested by the client as well as shared memory information contained in the metadata section of the data structure which the proxy has mapped into the shared memory segment. The handler will pop a shared memory segment from the steque loaded by the proxy and will put a message together consisting of the segment size, segment name, and file requested. The handler will then send the message via the message queue to the cache. 
 The handler waits on a semaphore before checking a flag for whether the cache has found the file. On an unsuccessful find, the handler will perform basic cleanup. On successful find, the handler will send the data contained in the shared memory segment and use semaphores to coordinate synchronous data writing/reading with the cache. After the entire file has been sent to the client, the handler will perform the basic cleanup.
