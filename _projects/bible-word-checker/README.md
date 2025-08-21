@@ -1,0 +1,1 @@
+# bible-word-checker

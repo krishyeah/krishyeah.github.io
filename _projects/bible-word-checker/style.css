@@ -1,0 +1,93 @@
+/* Global Styles */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f2f2f2; /* Light gray background */
+  padding: 20px;
+  margin: 0;
+}
+
+/* Heading */
+
+h1 {
+  color: #00698f; /* Navy blue heading color */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Style the user input area */
+
+#userInput {
+  display: block;
+  width: 90%;
+  max-width: 600px;
+  height: 100px;
+  padding: 10px;
+  font-size: 18px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  resize: vertical;
+}
+
+/* Style the button */
+
+button {
+  display: block;
+  background-color: #4CAF50; /* Green button color */
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 10px auto;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+
+/* Style the results area */
+
+#results {
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Style the hints area */
+
+#hints {
+  display: none;
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in;
+}
+
+#results p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Fade-in animation */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
