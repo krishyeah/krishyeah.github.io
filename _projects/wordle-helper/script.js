@@ -156,6 +156,25 @@ function displaySuggestions(suggestions) {
     for (const word of suggestions) {
         const li = document.createElement("li");
         li.textContent = word.toUpperCase();
+
+        li.addEventListener("click", () => {
+            const rows = document.querySelectorAll(".row");
+
+            // Find the first enabled row
+            for (const row of rows) {
+                const inputs = row.querySelectorAll("input");
+                if (!inputs[0].disabled) {
+                    // Fill the row with letters from the clicked suggestion
+                    for (let i = 0; i < 5; i++) {
+                        inputs[i].value = word[i].toUpperCase();
+                    }
+                    // Focus on the first box of the row
+                    inputs[0].focus();
+                    break;
+                }
+            }
+        });
+
         list.appendChild(li);
     }
 }
