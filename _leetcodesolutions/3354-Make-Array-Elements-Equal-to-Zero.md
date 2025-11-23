@@ -1,7 +1,7 @@
 ---
 title: "3354 Make Array Elements Equal to Zero"
 number: 3354
-date: 2025-10-24
+date: 2025-10-28
 collection: leetcodesolutions
 permalink: /leetcodesolutions/3354/
 excerpt: Solution to [Leetcode 3354](https://leetcode.com/problems/make-array-elements-equal-to-zero/description/)

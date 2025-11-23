@@ -1,7 +1,7 @@
 ---
 title: "3370 Smallest Number With All Set Bits"
 number: 3370
-date: 2025-10-24
+date: 2025-10-29
 collection: leetcodesolutions
 permalink: /leetcodesolutions/3370/
 excerpt: Solution to [Leetcode 3370](https://leetcode.com/problems/smallest-number-with-all-set-bits/description/)
