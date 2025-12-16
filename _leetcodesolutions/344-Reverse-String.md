@@ -33,7 +33,7 @@ $O(n)$. We have a linear time complexity as we perform operations linearly propo
 $O(1)$. We utilize constant space for our temp variable.
 
 ## Code
-```C++
+```cpp
 class Solution {
 public:
     void reverseString(vector<char>& s) {
