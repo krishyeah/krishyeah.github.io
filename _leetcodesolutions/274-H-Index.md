@@ -66,7 +66,8 @@ This secondary approach is polynomial in time complexity even though it may be s
 ## Complexity
 - Time complexity:
 <!-- Add your time complexity here, e.g. $$O(n)$$ -->
-$O(n*\log(n))$. We sort and then perform binary search. $O(n*\log(n)) +O(\log(n)) \rightarrow O(n*\log(n))$.
+$O(n \log n)$. We sort and then perform binary search.
+$O(n \log n) +O(\log n) = O(n \log n)$.
 - Space complexity:
 <!-- Add your space complexity here, e.g. $$O(n)$$ -->
 $O(n)$. Sorting in Python utilize O(n) space.
