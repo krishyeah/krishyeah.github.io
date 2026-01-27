@@ -24,8 +24,7 @@ Work experience
     * Refactored and modularized a Python image-analysis codebase (NumPy/SciPy), reducing technical debt and improving extensibility for downstream feature development.
     * Built reproducible analysis + visualization workflows (Matplotlib) and automated figure generation for reports and reviews; adopted by 5 research teams, reducing maintenance budgets by 20%.
     * Developed documentation and example-driven notebooks/scripts to accelerate onboarding and enable reliable handoffs to future developers.
-  Mechanical Focus
-    * Led design reviews and execution for reliability-focused upgrades; delivered $600k+ procurements and enabled estimated $200k/year in savings via improved system reliability and reduced maintenance burden.
+    * Led design reviews and execution for reliability-focused upgrades; delivered \$600k+ procurements and enabled estimated \$200k/year in savings via improved system reliability and reduced maintenance burden.
     * Drove requirements, feasibility studies, and final designs for system upgrades and expansions, partnering with stakeholders through review cycles.
   
 
