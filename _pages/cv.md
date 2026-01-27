@@ -19,14 +19,18 @@ Education
 Work experience
 ======
 
-* Nov 2021 - Present: Mechanical Engineer
-  * Lawrence Livermore National Laboratory
-    * Perform data analysis of problem logs to drive multiple design solutions for mitigating failure rates and leading sustainibility efforts.
-    * Led '$'500k project to reduce failure rate of disposable optic shields estimated to save '$'200k per year and 500-man hours.
-    * Create requirements, design feasibility studies, perform design reviews, and finalize design requirements.
+* Lawrence Livermore National Laboratories
+  * Nov 2021 - Present
+    * Refactored and modularized a Python image-analysis codebase (NumPy/SciPy), reducing technical debt and improving extensibility for downstream feature development.
+    * Built reproducible analysis + visualization workflows (Matplotlib) and automated figure generation for reports and reviews; adopted by 5 research teams, reducing maintenance budgets by 20%.
+    * Developed documentation and example-driven notebooks/scripts to accelerate onboarding and enable reliable handoffs to future developers.
+  Mechanical Focus
+    * Led design reviews and execution for reliability-focused upgrades; delivered $600k+ procurements and enabled estimated $200k/year in savings via improved system reliability and reduced maintenance burden.
+    * Drove requirements, feasibility studies, and final designs for system upgrades and expansions, partnering with stakeholders through review cycles.
+  
 
-* Aug 2019 - Oct 2021: Structural Analysis Engineer
-  * Boeing
+* Boeing
+  * Aug 2019 - Oct 2021
     * Analyzed damages to provide efficient blanket repair schemes driving down team response time by 20%.
     * Individually developed 3 design procedures accepted as company-wide standard for future repairs.
 
